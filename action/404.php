@@ -16,8 +16,7 @@ include('templates/login_header.php');
 <?php include('templates/message.php'); ?>
 
 <a href="/action/logout">Logout</a> | 
-<a href="/login">Login</a> | 
-<a href="/city/dashboard">Dashboard</a>
+<a href="/login">Login</a>
 
 <?php
 

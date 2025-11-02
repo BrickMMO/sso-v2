@@ -28,7 +28,7 @@ include('../templates/message.php');
     My Account
 </h1>
 <p>
-    <a href="/account/dashboard">Dashboard</a> / 
+    <a href="/dashboard">Dashboard</a> / 
     GitHub Account
 </p>
 <hr />
@@ -52,7 +52,7 @@ include('../templates/message.php');
         <li>Remove all GitHub access from your BrickMMO account.</li>
         <li>
             Disable your BrickMMO 
-            <a href="<?=ENV_SSO_DOMAIN?>/profile/<?=$_user['github_username']?>/">public profile</a>.
+            <a href="<?=ENV_SSO_DOMAIN?>/me/<?=$_user['github_username']?>/">public profile</a>.
         </li>
         <li>Prevent retrieving of BrickMMO contribution stats.</li>
         <li>Not remove your GitHub avatar from your BrickMMO account.</li>
@@ -88,8 +88,6 @@ include('../templates/message.php');
 
     
 <?php
-
-include('../templates/modal_city.php');
 
 include('../templates/main_footer.php');
 include('../templates/debug.php');

@@ -46,7 +46,7 @@ if($_user)
     if(mysqli_num_rows($result))
     {
         message_set('GitHub Error', 'The GitHub account '.$github_user['login'].' is already associated to another BrickMMO account.', 'red');
-        header_redirect('/account/dashboard');
+        header_redirect('/dashboard');
     }
 
     foreach($emails as $key => $email)
@@ -61,7 +61,7 @@ if($_user)
     if(!isset($email))
     {
         message_set('GitHub Error', 'The account you are currently logged in as and the GitHub account do not have matching emails. To resolve this add your BrickMMO email address to your GitHub account. ');
-        header_redirect('/account/dashboard');
+        header_redirect('/dashboard');
     }
 
     $query = 'UPDATE users SET 
@@ -76,7 +76,7 @@ if($_user)
     security_set_user_cookie($_user['id']);
 
     message_set('GitHub Success', 'Your GitHub account has been connected to your BrickMMO account.');
-    header_redirect('/account/dashboard');
+    header_redirect('/dashboard');
 
 }
 
@@ -119,7 +119,7 @@ if($user)
     security_set_user_cookie($user['id']);
 
     message_set('GitHub Success', 'You have been logged in using your GitHub account.');
-    header_redirect('/account/dashboard');
+    header_redirect('/dashboard');
 
 }
 
@@ -176,4 +176,4 @@ security_set_user_session($user['id']);
 security_set_user_cookie($user['id']);
 
 message_set('GitHub Success', 'Your BrickMMO account has been created and you have been logged in. You will receive an email with a link to confirm your email address.');
-header_redirect('/account/dashboard');
+header_redirect('/dashboard');

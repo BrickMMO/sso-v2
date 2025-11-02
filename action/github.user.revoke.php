@@ -14,4 +14,4 @@ mysqli_query($connect, $query);
 security_set_user_session($_user['id']);
 
 message_set('Disconnection Success', 'Your BrickMMO account has been disconnected from your GitHub account.');
-header_redirect('/account/dashboard');
+header_redirect('/dashboard');

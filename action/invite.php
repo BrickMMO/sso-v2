@@ -10,7 +10,7 @@ $_SESSION['invite'] = $_GET['hash'];
 
 if($_user)
 {
-    header_redirect(ENV_SSO_DOMAIN.'/account/dashboard');
+    header_redirect(ENV_SSO_DOMAIN.'/dashboard');
 }
 
 message_set('City Invite Success', 'You have been invited to join a city, please login or register to accept invitation.');

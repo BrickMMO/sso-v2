@@ -4,7 +4,7 @@ if(security_is_logged_in())
 {
 
     message_set('Login Success', 'You are already logged in.');
-    header_redirect(isset($_GET['url']) ? $_GET['url'] : '/account/dashboard');
+    header_redirect(isset($_GET['url']) ? $_GET['url'] : '/dashboard');
 
 }
 elseif ($_SERVER['REQUEST_METHOD'] == 'POST') 

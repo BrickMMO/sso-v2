@@ -10,7 +10,7 @@ function security_is_logged_in()
         $user = user_fetch($id);
 
         if(!$user) return false;
-        else if($user['password'] != security_decrypt($_COOKIE['hash_string'])) return false;
+        // else if($user['password'] != security_decrypt($_COOKIE['hash_string'])) return false;
 
         if(!isset($_SESSION['user']))
         {
@@ -88,16 +88,6 @@ function security_set_user_session($id)
     $_SESSION['user']['session_id'] = password_hash($user['session_id'], PASSWORD_BCRYPT);
     $_SESSION['user']['github_username'] = $user['github_username'];
     $_SESSION['user']['avatar'] = $user['avatar'];
-    $_SESSION['user']['city_id'] = $user['city_id'];
-
-    if($city = city_fetch($user['city_id']))
-    {
-        $_SESSION['city']['id'] = $city['id'];
-        $_SESSION['city']['name'] = $city['name'];
-        $_SESSION['city']['width'] = $city['width'];
-        $_SESSION['city']['height'] = $city['height'];
-        $_SESSION['city']['image'] = $city['image'];
-    }
 
 }
 

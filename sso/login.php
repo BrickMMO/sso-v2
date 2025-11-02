@@ -6,7 +6,7 @@ if(security_is_logged_in())
 {
 
     message_set('Login Success', 'You are already logged in.');
-    header_redirect('/account/dashboard');
+    header_redirect('/dashboard');
 
 }
 elseif ($_SERVER['REQUEST_METHOD'] == 'POST') 
@@ -42,9 +42,6 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST')
         header_redirect('/login');
     }
 
-    // Ensure they have a city set in their profile
-    if(!$user['city_id']) user_set_city($user['id']);
-
     // Start session and store user data
     security_set_user_session($user['id']);
 
@@ -52,7 +49,7 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST')
     security_set_user_cookie($user['id']);
 
     // Determine redirect URL
-    $redirect_url = isset($_GET['url']) ? $_GET['url'] : '/account/dashboard';
+    $redirect_url = isset($_GET['url']) ? $_GET['url'] : '/dashboard';
 
     message_set('Login Success', 'You have been logged in.');
     header_redirect($redirect_url);

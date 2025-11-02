@@ -26,13 +26,10 @@ include('../includes/config.php');
 include('../functions/functions.php');
 
 /**
- * Fetch city and user if applicable.
+ * Fetch user if applicable.
  */ 
 if(isset($_SESSION['user'])) $_user = user_fetch($_SESSION['user']['id']);
 else $_user = false;
-
-if(isset($_SESSION['city'])) $_city = city_fetch($_SESSION['city']['id']);
-else $_city = false;
 
 /**
  * Get domain.
@@ -73,7 +70,7 @@ $parts = array_filter(explode("/", trim($_SERVER['REQUEST_URI'], "/")));
 if(!count($parts))
 {
 
-    header_redirect(ENV_CONSOLE_DOMAIN.'/city/dashboard');
+    header_redirect(ENV_SSO_DOMAIN.'/dashboard');
 
 }
 

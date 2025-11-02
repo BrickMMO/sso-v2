@@ -19,7 +19,7 @@ if(isset($_SESSION['invite']))
         unset($_SESSION['invite']);
 
         message_set('Invitation Error', 'You are already a member of this city.', 'red', true);
-        header_redirect('/account/dashboard');
+        header_redirect('/dashboard');
     }
 
     $query = 'INSERT INTO city_user (
@@ -57,7 +57,7 @@ if(isset($_GET['key']) && $_GET['key'] == 'verify')
     email_send($_user['email'], user_name($_user['id']), $message, 'Email Verification');
 
     message_set('Verification Success', 'A verification email has been resent.');
-    header_redirect('/account/dashboard');
+    header_redirect('/dashboard');
 
 }
 
@@ -78,7 +78,7 @@ include('../templates/main_header.php');
 
 <div class="w3-center">
 
-    <a href="<?=ENV_SSO_DOMAIN?>/account/avatar">
+    <a href="<?=ENV_SSO_DOMAIN?>/avatar">
         <img
             src="<?=user_avatar($_user['id']);?>"
             style="height: 100px"
@@ -102,7 +102,7 @@ include('../templates/main_header.php');
                 Email Unverified
             </h3>
             <p>Verify your email address to unlock all BrickMMO console features.</p>
-            <a href="/account/dashboard/verify" class="w3-button w3-white w3-border">
+            <a href="/dashboard/verify" class="w3-button w3-white w3-border">
                 <i class="fa-solid fa-arrow-rotate-right fa-padding-right"></i> Resend Verification Email
             </a>
         </div>
@@ -111,31 +111,31 @@ include('../templates/main_header.php');
 <div class="w3-border w3-padding w3-margin-top w3-margin-bottom">
 
     <div class="w3-margin-top w3-margin-bottom">
-        <a href="<?=ENV_SSO_DOMAIN?>/account/profile" class="w3-display-container">
+        <a href="<?=ENV_SSO_DOMAIN?>/profile" class="w3-display-container">
             <i class="fa-solid fa-user fa-padding-right w3-text-dark-grey"></i>
             My Profile
             <i class="fa-solid fa-chevron-right fa-pull-right w3-text-dark-grey"></i>
         </a>
         <hr>
-        <a href="<?=ENV_SSO_DOMAIN?>/account/url" class="w3-block">
+        <a href="<?=ENV_SSO_DOMAIN?>/url" class="w3-block">
             <i class="fa-solid fa-globe fa-padding-right w3-text-dark-grey"></i>
             URL
             <i class="fa-solid fa-chevron-right fa-pull-right w3-text-dark-grey" class="w3-display-right"></i>
         </a>
         <hr>
-        <a href="<?=ENV_SSO_DOMAIN?>/account/avatar" class="w3-block">
+        <a href="<?=ENV_SSO_DOMAIN?>/avatar" class="w3-block">
             <i class="fa-solid fa-image-portrait fa-padding-right w3-text-dark-grey"></i>
             Avatar
             <i class="fa-solid fa-chevron-right fa-pull-right w3-text-dark-grey" class="w3-display-right"></i>
         </a>
         <hr>
-        <a href="<?=ENV_SSO_DOMAIN?>/account/password" class="w3-block">
+        <a href="<?=ENV_SSO_DOMAIN?>/password" class="w3-block">
             <i class="fa-solid fa-lock fa-padding-right w3-text-dark-grey"></i>
             Change Password
             <i class="fa-solid fa-chevron-right fa-pull-right w3-text-dark-grey" class="w3-display-right"></i>
         </a>
         <hr>
-        <a href="<?=ENV_SSO_DOMAIN?>/account/github" class="w3-block">
+        <a href="<?=ENV_SSO_DOMAIN?>/github" class="w3-block">
             <i class="fa-brands fa-github fa-padding-right w3-text-dark-grey"></i>
             GitHub Account
             <?php if($_user['github_username']): ?>(<?=$_user['github_username']?>)<?php endif; ?>
@@ -145,8 +145,6 @@ include('../templates/main_header.php');
 </div>
 
 <?php
-
-include('../templates/modal_city.php');
 
 include('../templates/main_footer.php');
 include('../templates/debug.php');

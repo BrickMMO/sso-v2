@@ -21,7 +21,7 @@ include('../templates/login_header.php');
 
     <?php if($_user): ?>
         <a href="<?=ENV_SSO_DOMAIN?>/action/logout">Logout</a> | 
-        <a href="<?=ENV_SSO_DOMAIN?>/account/dashboard">Account Dashboard</a> | 
+        <a href="<?=ENV_SSO_DOMAIN?>/dashboard">Account Dashboard</a> | 
     <?php else: ?>
         <a href="<?=ENV_SSO_DOMAIN?>/login">Login</a> | 
         <a href="<?=ENV_SSO_DOMAIN?>/register">Register</a>
@@ -31,8 +31,6 @@ include('../templates/login_header.php');
 </div>
 
 <?php
-
-include('../templates/modal_city.php');
 
 include('../templates/main_footer.php');
 include('../templates/debug.php');

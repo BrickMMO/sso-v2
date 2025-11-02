@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         !validate_image($_FILES['avatar']))
     {
         message_set('Avatar Upload Error', 'There was an error with your uploaded image.', 'red');
-        header_redirect('/account/avatar');
+        header_redirect('/avatar');
     }
 
     $image = Wideimage::load($_FILES['avatar']['tmp_name']);
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     security_set_user_session($_user['id']);
     
     message_set('Avatar Upload Success', 'Your avatar has been updated.');
-    header_redirect('/account/dashboard');
+    header_redirect('/dashboard');
     
 }
 
@@ -60,7 +60,7 @@ include('../templates/message.php');
     My Account
 </h1>
 <p>
-    <a href="/account/dashboard">Dashboard</a> / 
+    <a href="/dashboard">Dashboard</a> / 
     Avatar
 </p>
 <hr />
@@ -91,8 +91,6 @@ include('../templates/message.php');
 </form>
     
 <?php
-
-include('../templates/modal_city.php');
 
 include('../templates/main_footer.php');
 include('../templates/debug.php');

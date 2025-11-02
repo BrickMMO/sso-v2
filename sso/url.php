@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         validate_url_exists($_POST['url'], 'users', $_user['id']))
     {
         message_set('URL Error', 'There was an error with your URL.', 'red');
-        header_redirect('/account/url');
+        header_redirect('/url');
     }
 
     $query = 'UPDATE users SET
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     security_set_user_session($_user['id']);
 
     message_set('Password Success', 'Your URL has been updated.');
-    header_redirect('/account/dashboard');
+    header_redirect('/dashboard');
     
 }
 
@@ -56,7 +56,7 @@ include('../templates/message.php');
     My Account
 </h1>
 <p>
-    <a href="/account/dashboard">Dashboard</a> / 
+    <a href="/dashboard">Dashboard</a> / 
     Change URL
 </p>
 <hr />
@@ -67,13 +67,13 @@ include('../templates/message.php');
     <p>
         Adding a URL to your profile will make your account publicly visable at:
         <br />
-        <a href="#"><?=ENV_SSO_DOMAIN?>/profile/<span id="your-url">&lt;YOUR_URL&gt;</span></a>
+        <a href="#"><?=ENV_SSO_DOMAIN?>/me/<span id="your-url">&lt;YOUR_URL&gt;</span></a>
     </p>
 <?php else: ?>
     <p>
         Your profile is currently available at:
         <br />
-        <a href="<?=ENV_SSO_DOMAIN?>/profile/<?=$_user['url']?>"><?=ENV_SSO_DOMAIN?>/profile/<span id="your-url"><?=$_user['url']?></span></a>
+        <a href="<?=ENV_SSO_DOMAIN?>/me/<?=$_user['url']?>"><?=ENV_SSO_DOMAIN?>/me/<span id="your-url"><?=$_user['url']?></span></a>
     </p>
     <p>
         Changing your URL will cause your previous URL to no longer function and it will become available
@@ -175,8 +175,6 @@ include('../templates/message.php');
 </script>
     
 <?php
-
-include('../templates/modal_city.php');
 
 include('../templates/main_footer.php');
 include('../templates/debug.php');

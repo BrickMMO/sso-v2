@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $_POST['password'] != $_POST['password_confirm'])
     {
         message_set('Password Error', 'There was an error with your new password.', 'red');
-        header_redirect('/account/password');
+        header_redirect('/password');
     }
 
     $query = 'UPDATE users SET
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     security_set_user_cookie($_user['id']);
     
     message_set('Password Success', 'Your password has been updated.');
-    header_redirect('/account/dashboard');
+    header_redirect('/dashboard');
     
 }
 
@@ -58,7 +58,7 @@ include('../templates/message.php');
     My Account
 </h1>
 <p>
-    <a href="/account/dashboard">Dashboard</a> / 
+    <a href="/dashboard">Dashboard</a> / 
     Change Password
 </p>
 <hr />
@@ -136,8 +136,6 @@ include('../templates/message.php');
 </script>
     
 <?php
-
-include('../templates/modal_city.php');
 
 include('../templates/main_footer.php');
 include('../templates/debug.php');
