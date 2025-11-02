@@ -1,10 +1,10 @@
 <!-- TOP NAVIGATION -->
-
-
 <script 
     src="/bar.js"
     data-local="true"
+    data-sso="http://local.sso.brickmmo.com:7777"
     data-site="http://local.sso.brickmmo.com:7777"
+    data-api="http://local.api.brickmmo.com:7777"
 ></script>
 
 <?php /* ?>

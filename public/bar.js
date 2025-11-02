@@ -1,8 +1,10 @@
-
 const script = document.currentScript;
-const site = script.dataset.site;
-const local = script.dataset.local == "true" ? true : false;
 
+// Does this app have an admin
+const local = script.dataset.local == "true" ? true : false;
+const sso = script.dataset.sso;
+const site = script.dataset.site;
+const api = script.dataset.api;
 
 
 let topbarHtml = `
@@ -10,6 +12,7 @@ let topbarHtml = `
   <a href="${site}" id="bar-brickmmo"><img src="https://cdn.brickmmo.com/images@1.0.0/brickmmo-logo-coloured-horizontal.png" /></a>
   <a href="${site}/admin" id="bar-console"><img src="https://cdn.brickmmo.com/images@1.0.0/navbar-console.png" /></a>
   <a href="https://assets.brickmmo.com/" id="bar-hamburger"><img src="https://cdn.brickmmo.com/images@1.0.0/navbar-assets.png" /></a>
+  <a href="${sso ? sso : '#'}/" id="bar-user"></a>
 </div>
 <style>
   #bar-container {
@@ -44,10 +47,20 @@ let topbarHtml = `
     left: 20px;
   }
   #bar-container a#bar-console {
-    right: 70px;
+    display: none;
+    right: 110px;
   }
   #bar-container a#bar-hamburger {
     right: 20px;
+  }
+  #bar-container a#bar-user {
+    display: none;
+    right: 70px;
+  }
+  #bar-container a#bar-user img {
+    border-radius: 50%;
+    height: 25px;
+    margin-top: 5px;
   }
   #bar-container img {
     height: 35px;
@@ -69,5 +82,36 @@ document.querySelectorAll('*').forEach(el => {
   const style = window.getComputedStyle(el);
   if (style.height === window.innerHeight + 'px' || style.height === '100vh') {
     el.style.height = `calc(100vh - 58px)`;
+  }
+});
+
+fetch(api + 'user',{
+  credentials: 'include',
+})
+.then(response => {
+  return response.json();
+})
+.then(data => {
+  if(data.error == false)
+  {
+    const barUser = document.getElementById('bar-user');
+    const barConsole = document.getElementById('bar-console');
+
+    barUser.style.display = "block";
+
+    let profile = document.createElement("img");
+    profile.src = data.user.avatar;
+
+    barUser.appendChild(profile);
+
+    if(data.user.admin == 1)
+    {
+      barConsole.style.display = "block";
+    }
+
+    if(sso)
+    {
+      // barUser.href = 
+    }
   }
 });

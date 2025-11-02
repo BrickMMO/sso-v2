@@ -4,11 +4,11 @@
  * Start the session
  */
 session_set_cookie_params([
-    'domain' => '.brickmmo.com', // notice the leading dot!
+    'domain' => '.brickmmo.com',
     'path' => '/',
-    // 'secure' => true,
+    'secure' => true,
     // 'httponly' => true,
-    'samesite' => 'None'
+    'samesite' => 'None',
 ]);
 
 session_start();

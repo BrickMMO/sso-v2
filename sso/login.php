@@ -1,6 +1,6 @@
 <?php
 
-// use \Firebase\JWT\JWT;
+debug_pre($_SESSION);
 
 if(security_is_logged_in())
 {

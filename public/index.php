@@ -43,6 +43,7 @@ else
     
 }
 
+
 /**
  * Convert standard format URL parameters to slashes.
  */ 
@@ -254,7 +255,7 @@ elseif(PAGE_TYPE == 'action')
  */
 else
 {
-
+    
     include('../'.$folder.'/'.PAGE_FILE);
 
 }
