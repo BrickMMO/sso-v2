@@ -85,7 +85,7 @@ document.querySelectorAll('*').forEach(el => {
   }
 });
 
-fetch(api + 'user',{
+fetch(api + '/user',{
   credentials: 'include',
 })
 .then(response => {
@@ -104,14 +104,17 @@ fetch(api + 'user',{
 
     barUser.appendChild(profile);
 
+    if(!sso)
+    {
+      barUser.addEventListener("click", function(e){
+        openModal('avatar-options');
+        e.preventDefault();
+      });
+    }
+
     if(data.user.admin == 1)
     {
       barConsole.style.display = "block";
-    }
-
-    if(sso)
-    {
-      // barUser.href = 
     }
   }
 });

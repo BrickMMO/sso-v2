@@ -2,7 +2,7 @@
 <script 
     src="/bar.js"
     data-local="true"
-    data-sso="http://local.sso.brickmmo.com:7777"
+    data-sso=""
     data-site="http://local.sso.brickmmo.com:7777"
     data-api="http://local.api.brickmmo.com:7777"
 ></script>
@@ -120,6 +120,8 @@
     </div>
 
 </nav>
+-->
+<?php */ ?>
 
 <div
   id="avatar-options"
@@ -233,5 +235,3 @@
     }
 
 </script>
--->
-<?php */ ?>
