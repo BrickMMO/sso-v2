@@ -1,10 +1,9 @@
 <!-- TOP NAVIGATION -->
 <script 
     src="/bar.js"
-    data-local="true"
-    data-sso=""
-    data-site="http://local.sso.brickmmo.com:7777"
-    data-api="http://local.api.brickmmo.com:7777"
+    data-console="false"
+    data-local="<?=ENV_LOCAL ? 'true' : 'false'?>"
+    data-https="<?=ENV_HTTPS ? 'true' : 'false'?>"
 ></script>
 
 <?php /* ?>
@@ -74,7 +73,7 @@
             <button class="w3-button" onclick="w3SidebarToggle(event)">
                 <i class="fa-solid fa-bars"></i>
             </button>
-            <a href="<?=ENV_CONSOLE_DOMAIN?>/city/dashboard" onclick="prevent(event)"
+            <a href="<?=ENV_DOMAIN?>/city/dashboard" onclick="prevent(event)"
             ><img
                 src="https://cdn.brickmmo.com/images@1.0.0/brickmmo-logo-coloured-horizontal.png"
                 style="height: 35px"
@@ -91,7 +90,7 @@
                 </button>
             <?php else: ?>
                 <button
-                    onclick="location.href='<?=ENV_SSO_DOMAIN?>/city/create';"
+                    onclick="location.href='<?=ENV_DOMAIN?>/city/create';"
                     class="w3-border w3-border-gray w3-button w3-margin-left"
                 >
                    <i class="fa-solid fa-plus fa-padding-right"></i>
@@ -137,7 +136,7 @@
 
             <p>
                 You are logged in as 
-                <a href="<?=ENV_SSO_DOMAIN?>/dashboard"><?=user_name($_user['id'])?></a>
+                <a href="<?=ENV_DOMAIN?>/dashboard"><?=user_name($_user['id'])?></a>
             </p>
             <?php if($_user['github_username']): ?>
                 <p>
@@ -152,11 +151,11 @@
 
         <footer class="w3-container w3-center w3-light-grey w3-padding w3-border-top">
 
-            <a class="w3-button w3-border w3-white" href="<?=ENV_SSO_DOMAIN?>/dashboard">
+            <a class="w3-button w3-border w3-white" href="<?=ENV_DOMAIN?>/dashboard">
                 <i class="fa-solid fa-user fa-padding-right "></i>
                 My Account
             </a>
-            <a class="w3-button w3-border w3-white" href="<?=ENV_SSO_DOMAIN?>/action/logout">
+            <a class="w3-button w3-border w3-white" href="<?=ENV_DOMAIN?>/action/logout">
                 <i class="fa-solid fa-lock-open fa-padding-right "></i>
                 Logout
             </a>

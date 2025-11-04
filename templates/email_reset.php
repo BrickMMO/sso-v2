@@ -5,7 +5,7 @@
 </p>
 
 <p>
-    <a href="<?=ENV_SSO_DOMAIN?>/reset/hash/<?=$data['reset_hash']?>">
-        <?=ENV_SSO_DOMAIN?>/reset/hash/<?=$data['reset_hash']?>
+    <a href="<?=ENV_DOMAIN?>/reset/hash/<?=$data['reset_hash']?>">
+        <?=ENV_DOMAIN?>/reset/hash/<?=$data['reset_hash']?>
     </a>
 </p>

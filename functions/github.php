@@ -9,7 +9,7 @@ function github_url($redirect_uri = '/action/github/user/token')
 {
 
     return 'https://github.com/login/oauth/authorize?scope=read:user,user:email,public_repo&client_id='.GITHUB_CLIENT_ID.
-        '&redirect_uri='.urlencode(ENV_SSO_DOMAIN.$redirect_uri);
+        '&redirect_uri='.urlencode(ENV_DOMAIN.$redirect_uri);
 
 }
 

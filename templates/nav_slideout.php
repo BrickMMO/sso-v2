@@ -58,7 +58,7 @@ $navigation = navigation_array();
     onclick="prevent(event);"
 >
   <div class="w3-padding-16 w3-border-bottom">
-    <a href="<?=ENV_CONSOLE_DOMAIN?>/city/dashboard" class="w3-bar-item w3-button">
+    <a href="<?=ENV_DOMAIN?>/city/dashboard" class="w3-bar-item w3-button">
       <i class="fa-solid fa-gauge fa-padding-right w3-text-dark-grey"></i>
       Dashboard
     </a>
@@ -74,7 +74,7 @@ $navigation = navigation_array();
 
         <div class="w3-bar-item w3-text-gray bm-caps"><?=$level['title']?></div>
         <button
-            onclick="location.href='<?=ENV_SSO_DOMAIN?>/city/create';"
+            onclick="location.href='<?=ENV_DOMAIN?>/city/create';"
             class="w3-border w3-border-gray w3-button w3-margin-left"
         >
             <i class="fa-solid fa-plus fa-padding-right"></i>
@@ -96,7 +96,7 @@ $navigation = navigation_array();
           </a>
           <div id="<?=$section['id']?>" style="display: <?php if(PAGE_SELECTED_SECTION == $section['id']): ?>block<?php else: ?>none<?php endif; ?>">
             <?php foreach($section['pages'] as $page): ?>
-              <a href="<?=ENV_CONSOLE_DOMAIN?><?=$page['url']?>" class="w3-bar-item w3-button<?php if(PAGE_SELECTED_SUB_PAGE == $page['url']): ?> bm-selected<?php endif; ?>" onclick="prevent(event);">
+              <a href="<?=ENV_DOMAIN?><?=$page['url']?>" class="w3-bar-item w3-button<?php if(PAGE_SELECTED_SUB_PAGE == $page['url']): ?> bm-selected<?php endif; ?>" onclick="prevent(event);">
                 <i class="<?=$page['icon']?> fa-padding-right w3-text-dark-grey"></i>
                 <?=$page['title']?>
               </a>

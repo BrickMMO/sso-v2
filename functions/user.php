@@ -3,7 +3,7 @@
 function user_avatar($id, $absolute = false)
 {
     $user = user_fetch($id);
-    return $user['avatar'] ? $user['avatar'] : ($absolute ? ENV_SSO_DOMAIN : '').'/images/no_avatar.png';
+    return $user['avatar'] ? $user['avatar'] : ($absolute ? ENV_DOMAIN : '').'/images/no_avatar.png';
 }
 
 function user_name($id)

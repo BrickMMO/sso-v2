@@ -71,7 +71,7 @@ $parts = array_filter(explode("/", trim($_SERVER['REQUEST_URI'], "/")));
 if(!count($parts))
 {
 
-    header_redirect(ENV_SSO_DOMAIN.'/dashboard');
+    header_redirect(ENV_DOMAIN.'/dashboard');
 
 }
 
@@ -102,10 +102,11 @@ elseif($parts[0] == 'action')
 /**
  * If the request is an API request. 
  */
-elseif($domain == 'api')
+elseif($parts[0] == 'api')
 {
 
     define('PAGE_TYPE', 'api');
+    array_shift($parts);
     $folder = 'api/';
 
     header("Content-type: application/json; charset=utf-8");
@@ -208,7 +209,6 @@ for($i = 0; $i < count($final_parts); $i += 2)
         true;
 
 }
-
 
 /**
  * If the request is an ajax request. 

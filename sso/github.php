@@ -52,12 +52,12 @@ include('../templates/message.php');
         <li>Remove all GitHub access from your BrickMMO account.</li>
         <li>
             Disable your BrickMMO 
-            <a href="<?=ENV_SSO_DOMAIN?>/me/<?=$_user['github_username']?>/">public profile</a>.
+            <a href="<?=ENV_DOMAIN?>/me/<?=$_user['github_username']?>/">public profile</a>.
         </li>
         <li>Prevent retrieving of BrickMMO contribution stats.</li>
         <li>Not remove your GitHub avatar from your BrickMMO account.</li>
     </ul>
-    <a href="<?=ENV_SSO_DOMAIN?>/action/github/user/revoke" class="w3-button w3-white w3-border">
+    <a href="<?=ENV_DOMAIN?>/action/github/user/revoke" class="w3-button w3-white w3-border">
         <i class="fa-solid fa-xmark fa-padding-right"></i>
         Revoke GitHub Account Access
     </a>

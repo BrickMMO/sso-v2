@@ -67,13 +67,13 @@ include('../templates/message.php');
     <p>
         Adding a URL to your profile will make your account publicly visable at:
         <br />
-        <a href="#"><?=ENV_SSO_DOMAIN?>/me/<span id="your-url">&lt;YOUR_URL&gt;</span></a>
+        <a href="#"><?=ENV_DOMAIN?>/me/<span id="your-url">&lt;YOUR_URL&gt;</span></a>
     </p>
 <?php else: ?>
     <p>
         Your profile is currently available at:
         <br />
-        <a href="<?=ENV_SSO_DOMAIN?>/me/<?=$_user['url']?>"><?=ENV_SSO_DOMAIN?>/me/<span id="your-url"><?=$_user['url']?></span></a>
+        <a href="<?=ENV_DOMAIN?>/me/<?=$_user['url']?>"><?=ENV_DOMAIN?>/me/<span id="your-url"><?=$_user['url']?></span></a>
     </p>
     <p>
         Changing your URL will cause your previous URL to no longer function and it will become available

@@ -1,18 +1,26 @@
 const script = document.currentScript;
 
 // Does this app have an admin
+const cons = script.dataset.console == "true" ? true : false;
 const local = script.dataset.local == "true" ? true : false;
-const sso = script.dataset.sso;
-const site = script.dataset.site;
-const api = script.dataset.api;
+const https = script.dataset.https == "true" ? true : false;
 
+// console.log(cons);
+// console.log(local);
+// console.log(https);
+
+const domain = window.location.host;
+const site = (https ? 'https' : 'http' ) + '://' + domain;
+
+const sso = (https ? 'https' : 'http' ) + '://' + (local ? 'local.' : '') + 'sso.brickmmo.com' + (local ? ':7777' : '');
+const profile = domain.includes('sso.brickmmo');
 
 let topbarHtml = `
 <div id="bar-container">
   <a href="${site}" id="bar-brickmmo"><img src="https://cdn.brickmmo.com/images@1.0.0/brickmmo-logo-coloured-horizontal.png" /></a>
-  <a href="${site}/admin" id="bar-console"><img src="https://cdn.brickmmo.com/images@1.0.0/navbar-console.png" /></a>
-  <a href="https://assets.brickmmo.com/" id="bar-hamburger"><img src="https://cdn.brickmmo.com/images@1.0.0/navbar-assets.png" /></a>
-  <a href="${sso ? sso : '#'}/" id="bar-user"></a>
+  <a href="${site}/console" id="bar-console"><img src="https://cdn.brickmmo.com/images@1.0.0/navbar-console.png" /></a>
+  <a href="${sso}" id="bar-user"></a>
+  <a href="https://assets.brickmmo.com/" id="bar-hamburger"><img src="https://cdn.brickmmo.com/images@1.0.0/navbar-assets.png" /></a> 
 </div>
 <style>
   #bar-container {
@@ -85,7 +93,7 @@ document.querySelectorAll('*').forEach(el => {
   }
 });
 
-fetch(api + '/user',{
+fetch(site + '/api/user',{
   credentials: 'include',
 })
 .then(response => {
@@ -94,6 +102,7 @@ fetch(api + '/user',{
 .then(data => {
   if(data.error == false)
   {
+
     const barUser = document.getElementById('bar-user');
     const barConsole = document.getElementById('bar-console');
 
@@ -104,7 +113,7 @@ fetch(api + '/user',{
 
     barUser.appendChild(profile);
 
-    if(!sso)
+    if(profile)
     {
       barUser.addEventListener("click", function(e){
         openModal('avatar-options');
@@ -112,7 +121,7 @@ fetch(api + '/user',{
       });
     }
 
-    if(data.user.admin == 1)
+    if(cons)
     {
       barConsole.style.display = "block";
     }

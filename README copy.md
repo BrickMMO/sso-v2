@@ -88,8 +88,7 @@ DB_DATABASE=brickmmo_console
 DB_USERNAME=root
 DB_PASSWORD=root
 
-ENV_ACCOUNT_DOMAIN=http://local.account.brickmmo.com:7777
-ENV_CONSOLE_DOMAIN=http://local.account.brickmmo.com:7777
+ENV_DOMAIN=http://local.account.brickmmo.com:7777
 ENV_SALT=1234567890
 
 ENV_DEBUG=true

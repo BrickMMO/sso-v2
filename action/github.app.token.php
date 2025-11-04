@@ -18,4 +18,4 @@ if(!is_array($token) || !isset($token['access_token']))
 setting_update('GITHUB_ACCESS_TOKEN', $token['access_token']);
 
 message_set('GitHub Success', 'GitHub account has been connected to the BrickMMO console.');
-header_redirect(ENV_CONSOLE_DOMAIN.'/admin/authentication/dashboard');
+header_redirect(ENV_DOMAIN.'/admin/authentication/dashboard');

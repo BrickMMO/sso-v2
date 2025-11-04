@@ -160,7 +160,7 @@ function google_get_client($access_token = false)
     $client->setAuthConfig('../credentials.json');
     $client->setAccessType('offline');
     // $client->setRedirectUri('http://localhost:8888/callback.php');
-    // $client->setRedirectUri(ENV_SSO_DOMAIN.'/action/google/app/token');
+    // $client->setRedirectUri(ENV_DOMAIN.'/action/google/app/token');
     $client->setRedirectUri('https://local.account.brickmmo.com:7777/action/google/app/token');
 
     /**
