@@ -18,8 +18,10 @@ const profile = domain.includes('sso.brickmmo');
 let topbarHtml = `
 <div id="bar-container">
   <a href="${site}" id="bar-brickmmo"><img src="https://cdn.brickmmo.com/images@1.0.0/brickmmo-logo-coloured-horizontal.png" /></a>
-  <a href="${site}/console" id="bar-console"><img src="https://cdn.brickmmo.com/images@1.0.0/navbar-console.png" /></a>
-  <a href="${sso}" id="bar-user"></a>
+  <a href="${site}/console/dashboard" id="bar-console"><img src="https://cdn.brickmmo.com/images@1.0.0/navbar-console.png" /></a>
+  <a href="${sso}" id="bar-user">
+    <img src="https://cdn.brickmmo.com/images@1.0.0/no_avatar.png">
+  </a>
   <a href="https://assets.brickmmo.com/" id="bar-hamburger"><img src="https://cdn.brickmmo.com/images@1.0.0/navbar-assets.png" /></a> 
 </div>
 <style>
@@ -62,7 +64,6 @@ let topbarHtml = `
     right: 20px;
   }
   #bar-container a#bar-user {
-    display: none;
     right: 70px;
   }
   #bar-container a#bar-user img {
@@ -106,12 +107,13 @@ fetch(sso + '/api/user',{
     const barUser = document.getElementById('bar-user');
     const barConsole = document.getElementById('bar-console');
 
-    barUser.style.display = "block";
-
-    let profile = document.createElement("img");
-    profile.src = data.user.avatar;
-
-    barUser.appendChild(profile);
+    if(data.user.avatar)
+    {
+      barUser.innerHTML = '';
+      let profile = document.createElement("img");
+      profile.src = data.user.avatar;
+      barUser.appendChild(profile);
+    }
 
     if(profile)
     {

@@ -34,7 +34,8 @@ else $_user = false;
 /**
  * Get domain.
  */
-if(is_numeric(strpos($_SERVER['HTTP_HOST'], 'sso'))) $domain = 'sso';
+if(is_numeric(strpos($_SERVER['HTTP_HOST'], 'qr.'))) $domain = 'qr';
+elseif(is_numeric(strpos($_SERVER['HTTP_HOST'], 'sso.'))) $domain = 'sso';
 else
 {
 
@@ -66,7 +67,7 @@ if(strpos($_SERVER['REQUEST_URI'], '?'))
 $parts = array_filter(explode("/", trim($_SERVER['REQUEST_URI'], "/")));
 
 /**
- * If there are no parts, redirect to login page.
+ * If there are no parts, redirect to home page.
  */
 if(!count($parts))
 {
