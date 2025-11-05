@@ -123,9 +123,10 @@ elseif($parts[0] == 'api')
     header("Access-Control-Allow-Headers: Content-Type, X-Requested-With");
     */
 
-    $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+    $origin = $_SERVER['HTTP_ORIGIN'] ?? false;
 
-    if (preg_match('/\.?brickmmo\.com$/', parse_url($origin, PHP_URL_HOST))) {
+    if($origin && preg_match('/\.?brickmmo\.com$/', parse_url($origin, PHP_URL_HOST)))
+    {
         header("Access-Control-Allow-Origin: $origin");
         header("Access-Control-Allow-Credentials: true");
         header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
