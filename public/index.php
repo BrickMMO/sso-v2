@@ -109,10 +109,28 @@ elseif($parts[0] == 'api')
     array_shift($parts);
     $folder = 'api/';
 
+    /*
     header("Content-type: application/json; charset=utf-8");
     header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Methods: GET, POST');
     header("Access-Control-Allow-Headers: X-Requested-With");
+    */
+
+    /*
+    header("Access-Control-Allow-Origin: https://assets.brickmmo.com");
+    header("Access-Control-Allow-Credentials: true");
+    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+    header("Access-Control-Allow-Headers: Content-Type, X-Requested-With");
+    */
+
+    $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+
+    if (preg_match('/\.?brickmmo\.com$/', parse_url($origin, PHP_URL_HOST))) {
+        header("Access-Control-Allow-Origin: $origin");
+        header("Access-Control-Allow-Credentials: true");
+        header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+        header("Access-Control-Allow-Headers: Content-Type, X-Requested-With");
+    }
 
 }
 

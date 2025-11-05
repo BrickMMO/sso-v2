@@ -1,10 +1,6 @@
 {
   "require": {
-    "sendgrid/sendgrid": "^8.1",
-    "firebase/php-jwt": "^6.10",
     "smottt/wideimage": "^1.1",
-    "google/apiclient": "^2.0",
-    "endroid/qr-code": "^5.1",
     "getbrevo/brevo-php": "^1.0.0"
   }
 }

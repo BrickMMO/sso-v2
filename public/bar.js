@@ -93,7 +93,7 @@ document.querySelectorAll('*').forEach(el => {
   }
 });
 
-fetch(site + '/api/user',{
+fetch(sso + '/api/user',{
   credentials: 'include',
 })
 .then(response => {

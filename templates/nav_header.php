@@ -1,6 +1,6 @@
 <!-- TOP NAVIGATION -->
 <script 
-    src="/bar.js"
+    src="<?=ENV_LOCAL ? '/bar.js' : 'https://cdn.brickmmo.com/bar@1.1.0/bar.js'?>"
     data-console="false"
     data-local="<?=ENV_LOCAL ? 'true' : 'false'?>"
     data-https="<?=ENV_HTTPS ? 'true' : 'false'?>"
