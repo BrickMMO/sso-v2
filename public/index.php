@@ -34,8 +34,7 @@ else $_user = false;
 /**
  * Get domain.
  */
-if(is_numeric(strpos($_SERVER['HTTP_HOST'], 'qr.'))) $domain = 'qr';
-elseif(is_numeric(strpos($_SERVER['HTTP_HOST'], 'sso.'))) $domain = 'sso';
+if(is_numeric(strpos($_SERVER['HTTP_HOST'], 'sso.'))) $domain = 'sso';
 else
 {
 
