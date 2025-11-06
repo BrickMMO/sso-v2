@@ -10,8 +10,9 @@ if(!$user)
 }
 
 define('APP_NAME', 'Profile');
-
 define('PAGE_TITLE', $user['url']);
+define('PAGE_SELECTED_SECTION', '');
+define('PAGE_SELECTED_SUB_PAGE', '');
 
 include('../templates/html_header.php');
 include('../templates/login_header.php');

@@ -35,7 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 }
 
 define('APP_NAME', 'My Account');
-
 define('PAGE_TITLE', 'Avatar');
 define('PAGE_SELECTED_SECTION', '');
 define('PAGE_SELECTED_SUB_PAGE', '');

@@ -3,7 +3,6 @@
 security_check();
 
 define('APP_NAME', 'My Account');
-
 define('PAGE_TITLE', 'GitHub Account');
 define('PAGE_SELECTED_SECTION', '');
 define('PAGE_SELECTED_SUB_PAGE', '');

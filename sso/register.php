@@ -64,15 +64,16 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST')
 }
 
 define('APP_NAME', 'My Account');
-
 define('PAGE_TITLE', 'Register');
+define('PAGE_SELECTED_SECTION', '');
+define('PAGE_SELECTED_SUB_PAGE', '');
 
 include('../templates/html_header.php');
 include('../templates/login_header.php');
 
-?>
+include('../templates/message.php'); 
 
-<?php include('../templates/message.php'); ?>
+?>
 
 <div>
     <form
