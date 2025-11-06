@@ -2,11 +2,12 @@ const script = document.currentScript;
 
 // Does this app have an admin
 const cons = script.dataset.console == "true" ? true : false;
-const menu = script.dataset.console == "true" ? true : false;
+const menu = script.dataset.menu == "true" ? true : false;
 const local = script.dataset.local == "true" ? true : false;
 const https = script.dataset.https == "true" ? true : false;
 
 // console.log(cons);
+// console.log(menu);
 // console.log(local);
 // console.log(https);
 
@@ -105,12 +106,6 @@ document.querySelectorAll('*').forEach(el => {
 let barBrickMmo = document.getElementById('bar-brickmmo');
 let barMenu = document.getElementById('bar-menu');
 
-if(menu)
-{
-  barBrickMmo.style.left = "70px";
-  barMenu.style.display = "block";
-}
-
 fetch(sso + '/api/user',{
   credentials: 'include',
 })
@@ -143,6 +138,12 @@ fetch(sso + '/api/user',{
     if(cons)
     {
       barConsole.style.display = "block";
+    }
+
+    if(menu)
+    {
+      barBrickMmo.style.left = "70px";
+      barMenu.style.display = "block";
     }
   }
 });
