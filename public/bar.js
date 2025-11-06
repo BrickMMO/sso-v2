@@ -166,7 +166,7 @@ fetch(sso + '/api/user',{
     }
 
     // If this app has an admin
-    if(admin)
+    if(admin && data.user.admin == 1)
     {
       barAdmin.style.display = "block";
 
