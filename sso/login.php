@@ -1,7 +1,5 @@
 <?php
 
-debug_pre($_SESSION);
-
 if(security_is_logged_in())
 {
 

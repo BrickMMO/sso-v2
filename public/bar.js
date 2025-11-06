@@ -2,6 +2,7 @@ const script = document.currentScript;
 
 // Does this app have an admin
 const cons = script.dataset.console == "true" ? true : false;
+const menu = script.dataset.console == "true" ? true : false;
 const local = script.dataset.local == "true" ? true : false;
 const https = script.dataset.https == "true" ? true : false;
 
@@ -17,6 +18,9 @@ const profile = domain.includes('sso.brickmmo');
 
 let topbarHtml = `
 <div id="bar-container">
+  <a href="javascript: return void(0);" id="bar-menu" onclick="w3SidebarToggle(event)">
+    <img src="https://cdn.brickmmo.com/images@1.0.0/navbar-menu.png" />
+  </a> 
   <a href="${site}" id="bar-brickmmo"><img src="https://cdn.brickmmo.com/images@1.0.0/brickmmo-logo-coloured-horizontal.png" /></a>
   <a href="${site}/console/dashboard" id="bar-console"><img src="https://cdn.brickmmo.com/images@1.0.0/navbar-console.png" /></a>
   <a href="${sso}" id="bar-user">
@@ -52,6 +56,10 @@ let topbarHtml = `
     color: #ff5b00 !important;
     text-decoration: none !important;
     cursor: pointer;
+  }
+  #bar-container a#bar-menu {
+    display: none;
+    left: 20px;
   }
   #bar-container a#bar-brickmmo {
     left: 20px;
@@ -94,6 +102,15 @@ document.querySelectorAll('*').forEach(el => {
   }
 });
 
+let barBrickMmo = document.getElementById('bar-brickmmo');
+let barMenu = document.getElementById('bar-menu');
+
+if(menu)
+{
+  barBrickMmo.style.left = "70px";
+  barMenu.style.display = "block";
+}
+
 fetch(sso + '/api/user',{
   credentials: 'include',
 })
@@ -129,3 +146,4 @@ fetch(sso + '/api/user',{
     }
   }
 });
+
