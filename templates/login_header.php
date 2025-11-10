@@ -1,4 +1,14 @@
 
+<!-- TOP NAVIGATION -->
+<script 
+    src="<?=ENV_LOCAL ? '/bar.js' : 'https://cdn.brickmmo.com/bar@1.1.0/bar.js'?>"
+    data-console="false"
+    data-menu="false"
+    data-admin="true"
+    data-local="<?=ENV_LOCAL ? 'true' : 'false'?>"
+    data-https="<?=ENV_HTTPS ? 'true' : 'false'?>"
+></script>
+
 <main
   class="w3-container w3-display-middle"
   style="width: 100%; max-width: 400px"
