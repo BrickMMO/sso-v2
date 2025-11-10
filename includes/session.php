@@ -4,6 +4,7 @@
  * Start the session
  */
 session_set_cookie_params([
+    'lifetime' => 0,
     'domain' => '.brickmmo.com',
     'path' => '/',
     'secure' => ENV_HTTPS ? true : false,
