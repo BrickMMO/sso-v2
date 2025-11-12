@@ -1,16 +1,10 @@
 const script = document.currentScript;
 
-// Does this app have an admin
 const cons = script.dataset.console == "true" ? true : false;
 const menu = script.dataset.menu == "true" ? true : false;
 const admin = script.dataset.admin == "true" ? true : false;
 const local = script.dataset.local == "true" ? true : false;
 const https = script.dataset.https == "true" ? true : false;
-
-// console.log(cons);
-// console.log(menu);
-// console.log(local);
-// console.log(https);
 
 const domain = window.location.host;
 const site = (https ? 'https' : 'http' ) + '://' + domain;
@@ -18,45 +12,20 @@ const site = (https ? 'https' : 'http' ) + '://' + domain;
 const sso = (https ? 'https' : 'http' ) + '://' + (local ? 'local.' : '') + 'sso.brickmmo.com' + (local ? ':7777' : '');
 const profile = domain.includes('sso.brickmmo');
 
-let bottomBarHtml = `
-<div id="footer-container">
-  ${local ? `LOCAL` : `REMOTE`}
-</div>
-`;
-
-let topbarHtml = `
-<div id="bar-container">
-
-  <a href="javascript: return voi d(0);" id="bar-menu" onclick="w3SidebarToggle(event)">
-    <img src="https://cdn.brickmmo.com/images@1.0.0/navbar-menu.png" />
-  </a> 
-  <a href="${site}" id="bar-brickmmo">
-    <img src="https://cdn.brickmmo.com/images@1.0.0/brickmmo-logo-coloured-horizontal.png" />
-  </a>
-
-  <a href="${site}/admin/dashboard" id="bar-admin">
-    <img src="https://cdn.brickmmo.com/images@1.0.0/navbar-admin.png" />
-  </a>
-  <a href="${site}/console/dashboard" id="bar-console">
-    <img src="https://cdn.brickmmo.com/images@1.0.0/navbar-console.png" />
-  </a>
-  <a href="${sso}" id="bar-user">
-    <img src="https://cdn.brickmmo.com/images@1.0.0/no_avatar.png">
-  </a>
-  <a href="https://assets.brickmmo.com/" id="bar-hamburger">
-    <img src="https://cdn.brickmmo.com/images@1.0.0/navbar-assets.png" />
-  </a> 
-
-</div>
-
+let styles = `
 <style>
-  #footer-container {
-    align-items: center;
-    padding: 0 10px;
+
+  #bottom-bar-container {
+    color: #848484;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 10px;
     z-index: 9998;
     box-sizing: border-box;
-    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
   }
+
   #bar-container {
     position: fixed;
     top: 0;
@@ -123,80 +92,137 @@ let topbarHtml = `
   .markdown-body h1:first-of-type {
     margin-top: 20px !important;
   }
+    
 </style>
 `;
 
-// Insert topbar at the top of the body
-document.body.insertAdjacentHTML('afterbegin', topbarHtml);
-document.body.insertAdjacentHTML('beforeend', bottomBarHtml);
-
-// Adjust 100vh elements
-document.querySelectorAll('*').forEach(el => {
-  const style = window.getComputedStyle(el);
-  if (style.height === window.innerHeight + 'px' || style.height === '100vh') {
-    el.style.height = `calc(100vh - 58px)`;
+let bottomBarHtml = `
+<div id="bottom-bar-container">
+  <a href=-"https://brickmmo.com">BrickMMO</a> | 
+  <a href="https://codeadam.ca">CodeAdam</a> | 
+  <a href="https://humber.ca">Humber Polytechnic</a>
+  <br>
+  ${local ?
+    `
+    <a href="http://local.sso.brickmmo.com:7777">SSO</a> | 
+    <a href="http://local.parts.brickmmo.com:7777">Parts</a> | 
+    <a href="http://local.events.brickmmo.com:7777">Events</a> | 
+    <a href="http://local.colours.brickmmo.com:7777">Colours</a> | 
+    <a href="http://local.qr.brickmmo.com:7777">QR</a> | 
+    <a href="http://local.conversions.brickmmo.com:7777">Conversions</a> | 
+    <a href="http://local.bricksum.brickmmo.com:7777">Bricksum</a> | 
+    <a href="http://local.applications.brickmmo.com:7777">Applications</a>  
+    <br>
+    `
+    :
+    `
+    `
   }
-});
+  <small>LEGO&reg; is a trademark of the LEGO Group of companies which does not sponsor, authorize or endorse this site.</small>
+</div>
+`;
 
-let barBrickMmo = document.getElementById('bar-brickmmo');
-let barMenu = document.getElementById('bar-menu');
+let topbarHtml = `
+<div id="bar-container">
 
-fetch(sso + '/api/user',{
-  credentials: 'include',
-})
-.then(response => {
-  return response.json();
-})
-.then(data => {
-  if(data.error == false)
-  {
+  <a href="javascript: return voi d(0);" id="bar-menu" onclick="w3SidebarToggle(event)">
+    <img src="https://cdn.brickmmo.com/images@1.0.0/navbar-menu.png" />
+  </a> 
+  <a href="${site}" id="bar-brickmmo">
+    <img src="https://cdn.brickmmo.com/images@1.0.0/brickmmo-logo-coloured-horizontal.png" />
+  </a>
 
-    const barUser = document.getElementById('bar-user');
-    const barConsole = document.getElementById('bar-console');
-    const barAdmin = document.getElementById('bar-admin');
+  <a href="${site}/admin/dashboard" id="bar-admin">
+    <img src="https://cdn.brickmmo.com/images@1.0.0/navbar-admin.png" />
+  </a>
+  <a href="${site}/console/dashboard" id="bar-console">
+    <img src="https://cdn.brickmmo.com/images@1.0.0/navbar-console.png" />
+  </a>
+  <a href="${sso}" id="bar-user">
+    <img src="https://cdn.brickmmo.com/images@1.0.0/no_avatar.png">
+  </a>
+  <a href="https://assets.brickmmo.com/" id="bar-hamburger">
+    <img src="https://cdn.brickmmo.com/images@1.0.0/navbar-assets.png" />
+  </a> 
 
-    // If there is an avatar
-    if(data.user.avatar)
-    {
-      barUser.innerHTML = '';
-      let avatar = document.createElement("img");
-      avatar.src = data.user.avatar;
-      barUser.appendChild(avatar);
+</div>
+`;
+
+(function () {
+
+  // Insert topbar at the top of the body
+  document.head.insertAdjacentHTML('beforeend', styles);
+  document.body.insertAdjacentHTML('afterbegin', topbarHtml);
+  document.body.insertAdjacentHTML('beforeend', bottomBarHtml);
+
+  // Adjust 100vh elements
+  document.querySelectorAll('*').forEach(el => {
+    const style = window.getComputedStyle(el);
+    if (style.height === window.innerHeight + 'px' || style.height === '100vh') {
+      el.style.height = `calc(100vh - 58px)`;
     }
+  });
 
-    // If the avatar should open a modal
-    if(profile)
+  let barBrickMmo = document.getElementById('bar-brickmmo');
+  let barMenu = document.getElementById('bar-menu');
+
+  fetch(sso + '/api/user',{
+    credentials: 'include',
+  })
+  .then(response => {
+    return response.json();
+  })
+  .then(data => {
+    if(data.error == false)
     {
-      barUser.addEventListener("click", function(e){
-        openModal('avatar-options');
-        e.preventDefault();
-      });
-    }
 
-    // If this app has a console
-    if(cons)
-    {
-      barConsole.style.display = "block";
-    }
+      const barUser = document.getElementById('bar-user');
+      const barConsole = document.getElementById('bar-console');
+      const barAdmin = document.getElementById('bar-admin');
 
-    // If this app has an admin
-    if(admin && data.user.admin == 1)
-    {
-      barAdmin.style.display = "block";
-
-      if(!cons)
+      // If there is an avatar
+      if(data.user.avatar)
       {
-        barAdmin.style.right = "110px";
-      } 
-    }
-    
+        barUser.innerHTML = '';
+        let avatar = document.createElement("img");
+        avatar.src = data.user.avatar;
+        barUser.appendChild(avatar);
+      }
 
-    // If this app has a slideout menu
-    if(menu)
-    {
-      barBrickMmo.style.left = "70px";
-      barMenu.style.display = "block";
-    }
-  }
-});
+      // If the avatar should open a modal
+      if(profile)
+      {
+        barUser.addEventListener("click", function(e){
+          openModal('avatar-options');
+          e.preventDefault();
+        });
+      }
 
+      // If this app has a console
+      if(cons)
+      {
+        barConsole.style.display = "block";
+      }
+
+      // If this app has an admin
+      if(admin && data.user.admin == 1)
+      {
+        barAdmin.style.display = "block";
+
+        if(!cons)
+        {
+          barAdmin.style.right = "110px";
+        } 
+      }
+      
+
+      // If this app has a slideout menu
+      if(menu)
+      {
+        barBrickMmo.style.left = "70px";
+        barMenu.style.display = "block";
+      }
+    }
+  });
+
+})();
