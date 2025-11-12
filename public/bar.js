@@ -18,6 +18,12 @@ const site = (https ? 'https' : 'http' ) + '://' + domain;
 const sso = (https ? 'https' : 'http' ) + '://' + (local ? 'local.' : '') + 'sso.brickmmo.com' + (local ? ':7777' : '');
 const profile = domain.includes('sso.brickmmo');
 
+let bottomBarHtml = `
+<div id="footer-container">
+  ${local ? `LOCAL` : `REMOTE`}
+</div>
+`;
+
 let topbarHtml = `
 <div id="bar-container">
 
@@ -44,6 +50,13 @@ let topbarHtml = `
 </div>
 
 <style>
+  #footer-container {
+    align-items: center;
+    padding: 0 10px;
+    z-index: 9998;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+  }
   #bar-container {
     position: fixed;
     top: 0;
@@ -115,6 +128,7 @@ let topbarHtml = `
 
 // Insert topbar at the top of the body
 document.body.insertAdjacentHTML('afterbegin', topbarHtml);
+document.body.insertAdjacentHTML('beforeend', bottomBarHtml);
 
 // Adjust 100vh elements
 document.querySelectorAll('*').forEach(el => {

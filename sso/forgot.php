@@ -52,7 +52,6 @@ define('PAGE_SELECTED_SUB_PAGE', '');
 
 include('../templates/html_header.php');
 include('../templates/login_header.php');
-
 include('../templates/message.php'); 
 
 ?>
