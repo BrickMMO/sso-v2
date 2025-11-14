@@ -5,7 +5,50 @@ function navigation_array($selected = false)
 
     $navigation = [
         [
-        
+            'title' => 'Users',
+            'sections' => [
+                [
+                    'title' => 'Users',
+                    'id' => 'users',
+                    'pages' => [
+                        [
+                            'icon' => 'bm-sso',
+                            'url' => '/admin/dashboard',
+                            'title' => 'Users',
+                            'sub-pages' => [
+                                [
+                                    'title' => 'Dashboard',
+                                    'url' => '/admin/dashboard',
+                                    'colour' => 'red',
+                                ],[
+                                    'title' => 'Add User',
+                                    'url' => '/admin/add',
+                                    'colour' => 'red',
+                                ],[
+                                    'br' => '---',
+                                ],[
+                                    'title' => 'Visit SSO App',
+                                    'url' => 'https://sso.brickmmo.com',
+                                    'colour' => 'orange',
+                                    'icon' => 'fa-solid fa-arrow-up-right-from-square',
+                                ],[
+                                    'br' => '---',
+                                ],[
+                                    'title' => 'Uptime Report',
+                                    'url' => '/uptime/qr',
+                                    'colour' => 'orange',
+                                    'icons' => 'bm-uptime',
+                                ],[
+                                    'title' => 'Stats Report',
+                                    'url' => '/stats/qr',
+                                    'colour' => 'orange',
+                                    'icons' => 'bm-stats',
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
         ],
     ];
 
