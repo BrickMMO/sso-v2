@@ -40,7 +40,7 @@ $users_count = mysqli_num_rows($result);
 
 <h1 class="w3-margin-top w3-margin-bottom">
     <img
-        src="https://cdn.brickmmo.com/icons@1.0.0/person.png"
+        src="https://cdn.brickmmo.com/icons@1.0.0/sso.png"
         height="50"
         style="vertical-align: top"
     />
