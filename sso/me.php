@@ -25,11 +25,13 @@ include('../templates/login_header.php');
 
     <h2>    
         <?=user_name($user['id'])?>
-        <br>
-        <a href="https://github.com/<?=$user['github_username']?>">
-            <i class="fa-brands fa-github"></i>
-            <?=$user['github_username']?>
-        </a>
+        <?php if($user['github_username']): ?>
+            <br>
+            <a href="https://github.com/<?=$user['github_username']?>">
+                <i class="fa-brands fa-github"></i>
+                <?=$user['github_username']?>
+            </a>
+        <?php endif; ?>
     </h2>
 
 </div>

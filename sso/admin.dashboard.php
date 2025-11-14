@@ -16,12 +16,13 @@ if (isset($_GET['delete']))
 
 define('APP_NAME', 'My Account');
 define('PAGE_TITLE', 'Admin Dashboard');
-define('PAGE_SELECTED_SECTION', '');
-define('PAGE_SELECTED_SUB_PAGE', '');
+define('PAGE_SELECTED_SECTION', 'users');
+define('PAGE_SELECTED_SUB_PAGE', '/admin/dashboard');
 
 include('../templates/html_header.php');
 include('../templates/nav_header.php');
 include('../templates/nav_slideout.php');
+include('../templates/nav_sidebar.php');
 include('../templates/main_header.php');
 
 include('../templates/message.php');
@@ -80,12 +81,12 @@ $users_count = mysqli_num_rows($result);
             </td>
             <td>
                 <?php if($record['github_username']): ?>
-                    <a href="https://github.com/<?=$record['github_username']?>" target="_blank"><?=$record['github_username']?></a>
+                    <a href="https://github.com/<?=$record['github_username']?>"><?=$record['github_username']?></a>
                 <?php endif; ?>
             </td>
             <td>
                 <?php if($record['url']): ?>
-                    <a href="<?=$record['url']?>" target="_blank"><?=string_shorten($record['url'], 30)?></a>
+                    <a href="/me/<?=$record['url']?>"><?=$record['url']?></a>
                 <?php endif; ?>
             </td>
             <td>
