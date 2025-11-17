@@ -5,7 +5,7 @@
  */
 session_set_cookie_params([
     'lifetime' => 0,
-    'domain' => '.brickmmo.com',
+    'domain' => ENV_LOCAL ? '.local.brickmmo.com' : '.brickmmo.com',
     'path' => '/',
     'secure' => ENV_HTTPS ? true : false,
     // 'httponly' => true,

@@ -9,23 +9,27 @@ const https = script.dataset.https == "true" ? true : false;
 const domain = window.location.host;
 const site = (https ? 'https' : 'http' ) + '://' + domain;
 
-const sso = (https ? 'https' : 'http' ) + '://' + (local ? 'local.' : '') + 'sso.brickmmo.com' + (local ? ':7777' : '');
-const profile = domain.includes('sso.brickmmo');
+const sso = (https ? 'https' : 'http' ) + '://sso.' + (local ? 'local.' : '') + 'brickmmo.com' + (local ? '' : '');
+const profile = domain.includes('sso.' + (local ? 'local.' : '') + 'brickmmo');
 
 let styles = `
 <style>
-
   /*
   #bottom-bar-container {
-    color: #848484;
-    background-color: #ffffff;
+    position: fixed;
     left: 0;
     right: 0;
+    bottom: 0;
+    width: 100%;
+    color: #848484 !important;
+    font-family: font-family: Inter, sans-serif !important;
+    background-color: #ffffff;
     text-align: center;
-    padding: 10px;
+    padding: 15px;
     z-index: 9998;
     box-sizing: border-box;
     border-top: 1px solid #ccc;
+    margin-top: 30px;
   }
   */
 
@@ -107,14 +111,13 @@ let bottomBarHtml = `
   <br>
   ${local ?
     `
-    <a href="http://local.sso.brickmmo.com:7777">SSO</a> | 
-    <a href="http://local.parts.brickmmo.com:7777">Parts</a> | 
-    <a href="http://local.events.brickmmo.com:7777">Events</a> | 
-    <a href="http://local.colours.brickmmo.com:7777">Colours</a> | 
-    <a href="http://local.qr.brickmmo.com:7777">QR</a> | 
-    <a href="http://local.conversions.brickmmo.com:7777">Conversions</a> | 
-    <a href="http://local.bricksum.brickmmo.com:7777">Bricksum</a> | 
-    <a href="http://local.applications.brickmmo.com:7777">Applications</a>  
+    <a href="http://sso.local.brickmmo.com">SSO</a> | 
+    <a href="http://parts.local.brickmmo.com">Parts</a> | 
+    <a href="http://events.local.brickmmo.com">Events</a> | 
+    <a href="http://colours.local.brickmmo.com">Colours</a> | 
+    <a href="http://qr.local.brickmmo.com">QR</a> | 
+    <a href="http://conversions.local.brickmmo.com">Conversions</a> | 
+    <a href="http://bricksum.local.brickmmo.com">Bricksum</a> | 
     <br>
     `
     :
@@ -153,10 +156,7 @@ let topbarHtml = `
 
 (function () {
 
-  // Insert topbar at the top of the body
-  document.head.insertAdjacentHTML('beforeend', styles);
-  document.body.insertAdjacentHTML('afterbegin', topbarHtml);
-  // document.body.insertAdjacentHTML('beforeend', bottomBarHtml);
+  
 
   // Adjust 100vh elements
   document.querySelectorAll('*').forEach(el => {
@@ -226,6 +226,12 @@ let topbarHtml = `
         barMenu.style.display = "block";
       }
     }
+
   });
+
+  // Insert topbar at the top of the body
+  document.head.insertAdjacentHTML('beforeend', styles);
+  document.body.insertAdjacentHTML('afterbegin', topbarHtml);
+  // document.body.innerHTML += bottomBarHtml;
 
 })();
