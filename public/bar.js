@@ -145,7 +145,7 @@ let topbarHtml = `
     <img src="https://cdn.brickmmo.com/images@1.0.0/navbar-console.png" />
   </a>
   <a href="${sso}" id="bar-user">
-    <img src="https://cdn.brickmmo.com/images@1.0.0/no_avatar.png">
+    <img src="https://cdn.brickmmo.com/images@1.0.0/no-avatar.png">
   </a>
   <a href="https://assets.brickmmo.com/" id="bar-hamburger">
     <img src="https://cdn.brickmmo.com/images@1.0.0/navbar-assets.png" />
