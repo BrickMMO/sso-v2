@@ -10,6 +10,7 @@ const domain = window.location.host;
 const site = (https ? 'https' : 'http' ) + '://' + domain;
 
 const sso = (https ? 'https' : 'http' ) + '://sso.' + (local ? 'local.' : '') + 'brickmmo.com' + (local ? '' : '');
+const toggle = (https ? 'https' : 'http' ) + '://applications.' + (local ? 'local.' : '') + 'brickmmo.com' + (local ? '' : '');
 const profile = domain.includes('sso.' + (local ? 'local.' : '') + 'brickmmo');
 
 let styles = `
@@ -147,7 +148,7 @@ let topbarHtml = `
   <a href="${sso}" id="bar-user">
     <img src="https://cdn.brickmmo.com/images@1.0.0/no-avatar.png">
   </a>
-  <a href="https://assets.brickmmo.com/" id="bar-hamburger">
+  <a href="${toggle}/toggle" id="bar-hamburger">
     <img src="https://cdn.brickmmo.com/images@1.0.0/navbar-assets.png" />
   </a> 
 
