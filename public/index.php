@@ -43,6 +43,21 @@ else
     
 }
 
+/**
+ * ****************************************
+ * Custom route rule.
+ */
+if(isset($_GET['redirect']))
+{
+
+    $_SESSION['redirect'] = $_GET['redirect'];
+    header_redirect('/login');
+    
+}
+
+/**
+ * ****************************************
+ */
 
 /**
  * Convert standard format URL parameters to slashes.

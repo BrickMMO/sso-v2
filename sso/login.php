@@ -50,6 +50,16 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST')
     $redirect_url = isset($_GET['url']) ? $_GET['url'] : '/dashboard';
 
     message_set('Login Success', 'You have been logged in.');
+
+    if(isset($_SESSION['redirect']))
+    {
+        
+        $url = $_SESSION['redirect'];
+        unset($_SESSION['redirect']);
+        header_redirect($url);
+
+    }
+
     header_redirect($redirect_url);
     
 }
