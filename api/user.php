@@ -1,20 +1,49 @@
-<?php
+<?php   
 
-if(security_is_logged_in())
+if(isset($_GET['key']))
 {
+    
+    $query = 'SELECT id,
+        first,
+        last,
+        email,
+        github_username,
+        url,
+        avatar,
+        admin
+        FROM users
+        WHERE id = "'.addslashes($_GET['key']).'"
+        LIMIT 1';
+    $result = mysqli_query($connect, $query);
 
-    $data = array(
-        'message' => 'User retrieved successfully.',
-        'error' => false, 
-        'user' => $_SESSION['user'],
-    );
+    if(mysqli_num_rows($result))
+    {
+
+        $user = mysqli_fetch_assoc($result);
+
+        $data = array(
+            'message' => 'User retrieved successfully.',
+            'error' => false, 
+            'user' => $user,
+        );
+
+    }
+    else
+    {
+        
+        $data = array(
+            'message' => 'User not found.',
+            'error' => true, 
+        );
+
+    }
 
 }
 else
 {
 
     $data = array(
-        'message' => 'User not logged in.',
+        'message' => 'No user ID specified..',
         'error' => true, 
     );
 

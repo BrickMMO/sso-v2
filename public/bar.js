@@ -187,7 +187,7 @@ let topbarHtml = `
   let barBrickMmo = document.getElementById('bar-brickmmo');
   let barMenu = document.getElementById('bar-menu');
 
-  fetch(sso + '/api/user',{
+  fetch(sso + '/api/current',{
     credentials: 'include',
   })
   .then(response => {
