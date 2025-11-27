@@ -63,7 +63,7 @@ include('../templates/message.php');
 <?php else: ?>
 
     <p>
-        Your BrickMMO account is currently <strong>NOT</strong> connected to your GitHub account.
+        Your BrickMMO account is currently <span class="w3-bold">NOT</span> connected to your GitHub account.
     </p>
 
     <hr>
