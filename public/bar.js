@@ -9,8 +9,8 @@ const https = script.dataset.https == "true" ? true : false;
 const domain = window.location.host;
 const site = (https ? 'https' : 'http' ) + '://' + domain;
 
-const sso = (https ? 'https' : 'http' ) + '://sso.' + (local ? 'local.' : '') + 'brickmmo.com' + (local ? '' : '');
-const toggle = (https ? 'https' : 'http' ) + '://applications.' + (local ? 'local.' : '') + 'brickmmo.com' + (local ? '' : '');
+const sso = (https ? 'https' : 'http' ) + '://sso.' + (local ? 'local.' : '') + 'brickmmo.com' + (local ? ':33' : '');
+const toggle = (https ? 'https' : 'http' ) + '://applications.' + (local ? 'local.' : '') + 'brickmmo.com' + (local ? ':33' : '');
 const profile = domain.includes('sso.' + (local ? 'local.' : '') + 'brickmmo');
 
 let styles = `
