@@ -85,11 +85,11 @@ include('../templates/message.php');
         height="50"
         style="vertical-align: top"
     />
-    Users
+    Single Sign On
 </h1>
 
 <p>
-    <a href="/admin/dashboard">Users</a> / 
+    <a href="/admin/dashboard">Single Sign On</a> / 
     Add User
 </p>
 

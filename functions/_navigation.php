@@ -25,6 +25,10 @@ function navigation_array($selected = false)
                                     'url' => '/admin/add',
                                     'colour' => 'red',
                                 ],[
+                                    'title' => 'Authentication',
+                                    'url' => '/admin/authenticate',
+                                    'colour' => 'red',
+                                ],[
                                     'br' => '---',
                                 ],[
                                     'title' => 'Visit SSO App',

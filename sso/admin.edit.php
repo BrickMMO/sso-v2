@@ -78,10 +78,10 @@ $record = mysqli_fetch_assoc($result);
         height="50"
         style="vertical-align: top"
     />
-    Users
+    Single Sign On
 </h1>
 <p>
-    <a href="/admin/dashboard">Users</a> / 
+    <a href="/admin/dashboard">Single Sign On</a> / 
     Edit User
 </p>
 

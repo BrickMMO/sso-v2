@@ -44,7 +44,7 @@ $users_count = mysqli_num_rows($result);
         height="50"
         style="vertical-align: top"
     />
-    Users
+    Single Sign On
 </h1>
 
 <p>
