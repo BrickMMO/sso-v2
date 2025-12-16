@@ -81,7 +81,7 @@ $record = mysqli_fetch_assoc($result);
     Single Sign On
 </h1>
 <p>
-    <a href="/admin/dashboard">Single Sign On</a> / 
+    <a href="<?=ENV_DOMAIN?>/admin/dashboard">Single Sign On</a> / 
     Edit User
 </p>
 

@@ -100,7 +100,7 @@ include('../templates/message.php');
                 Email Unverified
             </h3>
             <p>Verify your email address to unlock all BrickMMO console features.</p>
-            <a href="/dashboard/verify" class="w3-button w3-white w3-border">
+            <a href="<?=ENV_DOMAIN?>/dashboard/verify" class="w3-button w3-white w3-border">
                 <i class="fa-solid fa-arrow-rotate-right fa-padding-right"></i> Resend Verification Email
             </a>
         </div>

@@ -34,7 +34,7 @@ $google = setting_fetch('GOOGLE_ACCESS_TOKEN');
     Single Sign On
 </h1>
 <p>
-    <a href="/admin/dashboard">Single Sign On</a> / 
+    <a href="<?=ENV_DOMAIN?>/admin/dashboard">Single Sign On</a> / 
     Authentication
 </p>
 
@@ -63,7 +63,7 @@ $google = setting_fetch('GOOGLE_ACCESS_TOKEN');
     </p>
 
     <a 
-        href="/action/github/app/revoke"
+        href="<?=ENV_DOMAIN?>/action/github/app/revoke"
         class="w3-button w3-white w3-border"
     >
         <i class="fa-solid fa-key fa-padding-right"></i> Revoke GitHub Authentication
@@ -102,7 +102,7 @@ $google = setting_fetch('GOOGLE_ACCESS_TOKEN');
     </p>
 
     <a 
-        href="/action/google/app/revoke"
+        href="<?=ENV_DOMAIN?>/action/google/app/revoke"
         class="w3-button w3-white w3-border"
     >
         <i class="fa-solid fa-key fa-padding-right"></i> Revoke Google Authentication

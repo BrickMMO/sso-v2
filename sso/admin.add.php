@@ -89,7 +89,7 @@ include('../templates/message.php');
 </h1>
 
 <p>
-    <a href="/admin/dashboard">Single Sign On</a> / 
+    <a href="<?=ENV_DOMAIN?>/admin/dashboard">Single Sign On</a> / 
     Add User
 </p>
 

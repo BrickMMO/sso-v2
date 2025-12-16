@@ -57,7 +57,7 @@ include('../templates/message.php');
     My Account
 </h1>
 <p>
-    <a href="/dashboard">Dashboard</a> / 
+    <a href="<?=ENV_DOMAIN?>/dashboard">Dashboard</a> / 
     My Profile
 </p>
 <hr />
