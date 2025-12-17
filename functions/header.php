@@ -13,7 +13,17 @@ function header_redirect($url)
 
     session_write_close();
     
-    if(ENV_REDIRECT) echo 'Redirect: <a href="'.$url.'">'.$url.'</a>';
+    if(ENV_REDIRECT)
+    {
+
+        echo '<pre>';
+        print_r($_SESSION);
+        print_r($_COOKIE);
+        echo '</pre>';
+
+        echo 'Redirect: <a href="'.$url.'">'.$url.'</a>';
+
+    }
     else header('Location: '.$url);
 
     exit;
