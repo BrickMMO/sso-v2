@@ -7,6 +7,7 @@
     data-console="false"
     data-menu="false"
     data-admin="true"
+    data-city="false"
     data-local="<?=ENV_LOCAL ? 'true' : 'false'?>"
     data-https="<?=ENV_HTTPS ? 'true' : 'false'?>"
 ></script>

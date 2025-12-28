@@ -2,6 +2,7 @@
 
 security_check();
 
+/*
 if(isset($_SESSION['invite']))
 {
 
@@ -37,6 +38,7 @@ if(isset($_SESSION['invite']))
     header_redirect(ENV_DOMAIN.'/action/city/select/id/'.$invite['city_id']);
 
 }
+*/
 
 if(isset($_GET['key']) && $_GET['key'] == 'verify')
 {
