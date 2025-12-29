@@ -35,7 +35,7 @@ if(isset($_SESSION['invite']))
     unset($_SESSION['invite']);
 
     message_set('Invitation Success', 'Invitation to the new city has been accepted!', 'green', true);
-    header_redirect(ENV_DOMAIN.'/action/city/select/id/'.$invite['city_id']);
+    header_redirect(ENV_DOMAIN.'/action/console/select/id/'.$invite['city_id']);
 
 }
 */
