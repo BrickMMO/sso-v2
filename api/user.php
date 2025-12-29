@@ -10,7 +10,8 @@ if(isset($_GET['key']))
         github_username,
         url,
         avatar,
-        admin
+        admin,
+        session_id
         FROM users
         WHERE id = "'.addslashes($_GET['key']).'"
         LIMIT 1';
